@@ -1,0 +1,4 @@
+=Introduction
+
+Gee... it sure would be awesome if ActiveResource _actually_ allowed us to do client-side validation of our ActiveResource objects
+like their documentation promises:http://apidock.com/rails/ActiveResource/Base
