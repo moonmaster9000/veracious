@@ -1,4 +1,43 @@
 =Introduction
 
 Gee... it sure would be awesome if ActiveResource _actually_ allowed us to do client-side validation of our ActiveResource objects
-like their documentation promises:http://apidock.com/rails/ActiveResource/Base
+like the ActiveResource::Base documentation promises[http://apidock.com/rails/ActiveResource/Base]
+
+
+=Installation
+
+To install, add this to your environment.rb: 
+
+  config.gem 'wallet', :version => '0.0.2', :lib => 'wallet', :source => 'http://gemcutter.org'
+
+Next, go to the root of your project in a shell and run this command (you may need to use "sudo" depending on your environment): 
+
+  sh# rake gems:install 
+  
+=Usage
+
+You can now create a protected "validate" method in your ActiveResource::Base-derived class: 
+
+  class Book < ActiveResource::Base
+    self.site = 'http://myservice.domain'
+    
+    protected
+    def validate
+      errors.add(:author, 'is required') if (author.blank? rescue true)
+    end
+  end
+
+Now, in your code, you can do the following:
+
+  irb> b = Book.new
+  irb> b.valid?
+    ==> false
+  irb> b.author = ''
+  irb> b.valid?
+    ==> false
+  irb> b.author = 'Iain M. Banks'
+  irb> b.valid?
+    ==> true
+
+When you call the _valid?_ method on your active resource object, it will do client side validation. It will *not* send a request to the service provider for validation. 
+  
