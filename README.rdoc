@@ -8,7 +8,7 @@ like the ActiveResource::Base documentation promises[http://apidock.com/rails/Ac
 
 To install, add this to your environment.rb: 
 
-  config.gem 'wallet', :version => '0.0.2', :lib => 'wallet', :source => 'http://gemcutter.org'
+  config.gem 'veracious', :version => '0.0.2', :lib => 'veracious', :source => 'http://gemcutter.org'
 
 Next, go to the root of your project in a shell and run this command (you may need to use "sudo" depending on your environment): 
 
