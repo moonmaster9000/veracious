@@ -29,14 +29,14 @@ You can now create a protected "validate" method in your ActiveResource::Base-de
 
 Now, in your code, you can do the following:
 
-  irb> b = Book.new
-  irb> b.valid?
+  console> b = Book.new
+  console> b.valid?
     ==> false
-  irb> b.author = ''
-  irb> b.valid?
+  console> b.author = ''
+  console> b.valid?
     ==> false
-  irb> b.author = 'Iain M. Banks'
-  irb> b.valid?
+  console> b.author = 'Iain M. Banks'
+  console> b.valid?
     ==> true
 
 When you call the _valid?_ method on your active resource object, it will do client side validation. It will *not* send a request to the service provider for validation. 
